@@ -16,10 +16,14 @@ fetch('/data/kommunalwahlkreise_2018.updated.geojson', {
 const map = L.map('map').setView([54.7836, 9.4321], 13);
 
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer.wms('https://sgx.geodatenzentrum.de/wms_basemapde?service=wms&version=1.3.0&request=GetMap&Layers=de_basemapde_web_raster_grau&STYLES=default&CRS=EPSG:25832&bbox=500000,5700000,500200,5700200&width=150&Height=150&Format=image/png', {
+    layers: 'de_basemapde_web_raster_grau'
+}).addTo(map)
+
+/*L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map)
+}).addTo(map)*/
 
 
 let geocoder = L.Control.Geocoder.nominatim()
