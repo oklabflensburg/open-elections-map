@@ -23,17 +23,19 @@ def read_geojson_dataset():
         return data
 
 
-def generate_properties(geojson, csv):
-    for feature in geojson['features']:
-        c = [x for x in csv for i, r in enumerate(x) if x[-1] == feature['properties']['NAME']]
-        # print(c)
-        feature['properties'].update({'candiates': c})
-        print(feature['properties'])
+def generate_properties(data, csv):
+    for feature in data['features']:
+        c = [x for x in csv for r in x if r == feature['properties']['NAME']]
+        print(c)
+        feature['properties'].update({'candidates': c})
+        # print(feature['properties'])
+
+    return write_geojson_dataset(data)
 
 
-def write_dataset(data):
-    with open('kommunalwahlkreise_2018.updated.geojson', 'w') as f:
-        json.dump(data, f)
+def write_geojson_dataset(data):
+    with open('data/kommunalwahlkreise_2018.updated.geojson', 'w') as file:
+        json.dump(data, file, ensure_ascii=False)
 
 
 def main():

@@ -1,4 +1,4 @@
-fetch('/data/kommunalwahlkreise_2018.geojson', {
+fetch('/data/kommunalwahlkreise_2018.updated.geojson', {
 // fetch('https://map.de/query/xxx', {
     method: 'GET'
 })
@@ -47,13 +47,33 @@ const osmGeocoder = new L.Control.geocoder({
 osmGeocoder.on('markgeocode', e => {
     const bounds = L.latLngBounds(e.geocode.bbox._southWest, e.geocode.bbox._northEast)
     map.fitBounds(bounds)
-});
+})
+
+
+function onMapClick(evt) {
+    const array = evt.target.feature.properties.candidates
+    const list = document.createElement('ul')
+    list.classList.add('p-3')
+
+    for (let i = 0; i < array.length; i++) {
+        const item = document.createElement('li')
+        item.classList.add('mb-2')
+
+        const candidate = `<strong>${array[i][0]}</strong><br><p>${array[i][1]}, ${array[i][2]}</p>`
+
+        item.innerHTML = candidate
+        list.appendChild(item)
+    }
+
+    document.getElementById('details').innerHTML = ''
+    document.getElementById('details').appendChild(list)
+}
 
 
 function onEachFeature(feature, layer) {
-    if (feature.properties && feature.properties.NAME) {
-        layer.bindPopup(feature.properties.NAME);
-    }
+    layer.on('click', function(evt) {
+        onMapClick(evt)
+    })
 }
 
 
