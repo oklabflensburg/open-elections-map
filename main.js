@@ -16,7 +16,7 @@ fetch('/data/kommunalwahlkreise_2018.updated.geojson', {
 const map = L.map('map').setView([54.7836, 9.4321], 13);
 
 
-L.tileLayer.wms('https://sgx.geodatenzentrum.de/wms_basemapde?service=wms&version=1.3.0&request=GetMap&Layers=de_basemapde_web_raster_grau&STYLES=default&CRS=EPSG:25832&bbox=500000,5700000,500200,5700200&width=150&Height=150&Format=image/png', {
+L.tileLayer.wms('https://sgx.geodatenzentrum.de/wms_basemapde?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=de_basemapde_web_raster_grau&WIDTH=512&HEIGHT=512&CRS=EPSG%3A25832&STYLES=&BBOX=442800%2C5809000%2C1231728.7726528377%2C6597928.772652837', {
     layers: 'de_basemapde_web_raster_grau'
 }).addTo(map)
 
@@ -55,29 +55,41 @@ osmGeocoder.on('markgeocode', e => {
 
 
 function onMapClick(evt) {
+    const bounds = L.latLngBounds(evt.target._bounds._southWest, evt.target._bounds._northEast)
+    map.fitBounds(bounds)
+
     const array = evt.target.feature.properties.candidates
     const list = document.createElement('ul')
+
     list.classList.add('p-3')
 
     for (let i = 0; i < array.length; i++) {
         const item = document.createElement('li')
-        item.classList.add('mb-2')
-
         const candidate = `<strong>${array[i][0]}</strong><br><p>${array[i][1]}, ${array[i][2]}</p>`
 
+        item.classList.add('mb-2')
         item.innerHTML = candidate
         list.appendChild(item)
     }
 
     document.getElementById('details').innerHTML = ''
     document.getElementById('details').appendChild(list)
+
+    evt.preventDefault
 }
 
 
 function onEachFeature(feature, layer) {
+    const label = `Wahlkreis ${feature.properties.NAME}`
+
     layer.on('click', function(evt) {
         onMapClick(evt)
     })
+
+    layer.bindTooltip(label, {
+        permanent: false,
+        direction: 'top'
+    }).openTooltip()
 }
 
 
