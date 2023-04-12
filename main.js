@@ -1,5 +1,5 @@
-fetch('/data/kommunalwahlkreise_2018.updated.geojson', {
-// fetch('https://map.de/query/xxx', {
+// fetch('/data/luebeck/kommunalwahlkreise_2018.updated.geojson', {
+fetch('/data/flensburg/kommunalwahlbezirke_2023.geojson', {
     method: 'GET'
 })
 .then((response) => {
@@ -16,14 +16,10 @@ fetch('/data/kommunalwahlkreise_2018.updated.geojson', {
 const map = L.map('map').setView([54.7836, 9.4321], 13);
 
 
-L.tileLayer.wms('https://sgx.geodatenzentrum.de/wms_basemapde?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=de_basemapde_web_raster_grau&WIDTH=512&HEIGHT=512&CRS=EPSG%3A25832&STYLES=&BBOX=442800%2C5809000%2C1231728.7726528377%2C6597928.772652837', {
-    layers: 'de_basemapde_web_raster_grau'
-}).addTo(map)
-
-/*L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map)*/
+}).addTo(map)
 
 
 let geocoder = L.Control.Geocoder.nominatim()
