@@ -6,7 +6,7 @@ import json
 
 
 def read_csv_dataset():
-    with open('data/20230324.parsed.csv', newline='') as csvfile:
+    with open('data/luebeck/20230324.parsed.csv', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=',', quotechar='"')
         rows = []
 
@@ -17,7 +17,7 @@ def read_csv_dataset():
 
 
 def read_geojson_dataset():
-    with open('data/kommunalwahlkreise_2018.geojson', 'r') as f:
+    with open('data/luebeck/kommunalwahlkreise_2018.geojson', 'r') as f:
         data = json.load(f)
 
         return data
@@ -34,7 +34,7 @@ def generate_properties(data, csv):
 
 
 def write_geojson_dataset(data):
-    with open('data/kommunalwahlkreise_2018.updated.geojson', 'w') as file:
+    with open('data/luebeck/kommunalwahlkreise_2018.updated.geojson', 'w') as file:
         json.dump(data, file, ensure_ascii=False)
 
 
