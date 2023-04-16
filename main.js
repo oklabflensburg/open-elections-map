@@ -1,5 +1,5 @@
 // fetch('/data/luebeck/kommunalwahlkreise_2018.updated.geojson', {
-fetch('/data/flensburg/kommunalwahlbezirke_2023.geojson', {
+fetch('/data/flensburg/kommunalwahlkreise_2023.updated.geojson', {
     method: 'GET'
 })
 .then((response) => {
