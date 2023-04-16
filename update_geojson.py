@@ -25,13 +25,7 @@ def read_geojson_dataset(file):
 
 def generate_properties(data, csv, key):
     for feature in data['features']:
-        c = [x for x in csv for r in x if r == feature['properties'][key]]
-        # u = [list(x) for x in set(tuple(x) for x in c)]
-
-        '''
-        if not hasattr(feature['properties'], 'candidates'):
-            print(u)
-        '''
+        c = [x for x in csv for r in x if r == '{:0>2}'.format(feature['properties'][key])]
 
         print(c)
         feature['properties'].update({'candidates': c})

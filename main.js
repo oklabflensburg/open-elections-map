@@ -76,7 +76,7 @@ function onMapClick(evt) {
 
 
 function onEachFeature(feature, layer) {
-    const label = `Wahlkreis ${feature.properties.NAME}`
+    const label = `Wahlkreis ${feature.properties.Wahlkreis}`
 
     layer.on('click', function(evt) {
         onMapClick(evt)
