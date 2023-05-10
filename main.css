@@ -3,6 +3,13 @@ html, body {
     padding: 0;
 }
 
+h1 {
+    color: #fff;
+    background: #104b44;
+    padding: 1px 3px 3px 3px;
+    display: inline-block;
+}
+
 .table {
     border-collapse: separate;
     border-spacing: 5em;

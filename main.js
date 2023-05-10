@@ -1,5 +1,5 @@
 // fetch('/data/luebeck/kommunalwahlkreise_2018.updated.geojson', {
-fetch('/data/flensburg/kommunalwahlkreise_2023.updated.geojson', {
+fetch('/data/wahlkreise_gemeinden_2023.geojson', {
     method: 'GET'
 })
 .then((response) => {
@@ -14,7 +14,7 @@ fetch('/data/flensburg/kommunalwahlkreise_2023.updated.geojson', {
 
 
 const map = L.map('map').setView([54.7836, 9.4321], 13);
-
+let prevLayerClicked = null;
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -44,18 +44,41 @@ const osmGeocoder = new L.Control.geocoder({
     defaultMarkGeocode: false
 }).addTo(map)
 
+
 osmGeocoder.on('markgeocode', e => {
     const bounds = L.latLngBounds(e.geocode.bbox._southWest, e.geocode.bbox._northEast)
     map.fitBounds(bounds)
 })
 
 
-function onMapClick(evt) {
-    const bounds = L.latLngBounds(evt.target._bounds._southWest, evt.target._bounds._northEast)
+let layerStyle = {
+    default: {
+        color: '#fff',
+        fillColor: '#104b44',
+        fillOpacity: 0.7,
+        opacity: 0.6,
+        weight: 2
+    },
+    click: {
+        color: '#fff',
+        fillColor: '#06e006',
+        fillOpacity: 0.2,
+        opacity: 0.4,
+        weight: 3
+    }
+}
+
+
+function onMapClick(e) {
+    const bounds = L.latLngBounds(e.target._bounds._southWest, e.target._bounds._northEast)
     map.fitBounds(bounds)
 
-    const array = evt.target.feature.properties.candidates
+    const array = e.target.feature.properties.candidates || []
     const list = document.createElement('ul')
+
+    if (array.length === 0) {
+        return;
+    }
 
     list.classList.add('p-3')
 
@@ -71,15 +94,24 @@ function onMapClick(evt) {
     document.getElementById('details').innerHTML = ''
     document.getElementById('details').appendChild(list)
 
-    evt.preventDefault
+    e.preventDefault
 }
 
 
 function onEachFeature(feature, layer) {
-    const label = `Wahlkreis ${feature.properties.Wahlkreis}`
+    const label = `Wahlkreis ${feature.properties.WK_Name}`
 
-    layer.on('click', function(evt) {
-        onMapClick(evt)
+    layer.on('click', function(e) {
+        e.target.setStyle(layerStyle.click);
+
+        if (prevLayerClicked !== null) {
+            prevLayerClicked.setStyle(layerStyle.default);
+        }
+        
+        const layer = e.target;
+        prevLayerClicked = layer;
+        
+        onMapClick(e)
     })
 
     layer.bindTooltip(label, {
@@ -91,6 +123,7 @@ function onEachFeature(feature, layer) {
 
 function addData(data) {
     const layer = L.geoJson(data, {
+        style: layerStyle.default,
         onEachFeature: onEachFeature
     }).addTo(map)
 

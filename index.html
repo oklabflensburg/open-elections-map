@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8">
-    <title>Open local Elections Map - Schleswig-Holstein</title>
+    <title>Kommunalwahlen - Schleswig-Holstein</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <link crossorigin="" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" rel="stylesheet">
@@ -16,62 +16,31 @@
 <body>
 <div class="sm:flex overflow-hidden" id="wrapper">
     <div class="w-full sm:w-8/12 md:w-7/12 lg:w-9/12 overflow-hidden" id="map"></div>
-    <div class="w-full sm:w-4/12 md:w-5/12 lg:w-3/12 sm:overflow-scroll bg-neutral-100"
-         id="filter">
-        <div class="hidden flex flex-col bg-gray-700 pt-2 pb-4 px-3">
-            <h2 class="text-xl font-medium mb-4 text-gray-100">Unfallart</h2>
-            <div class="flex items-start mb-4">
-                <input class="w-1/12 w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
-                       id="uart-1" type="checkbox"
-                       value="">
-                <label class="w-11/12 ml-2 -mt-1 text-md font-medium text-gray-100 dark:text-gray-100" for="uart-1">Zusammenstoß
-                    mit entgegenkommendem Fahrzeug</label>
-            </div>
-            <div class="flex items-start mb-4">
-                <input class="w-1/12 w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
-                       id="uart-2" type="checkbox"
-                       value="">
-                <label class="w-11/12 ml-2 -mt-1 text-md font-medium text-gray-100 dark:text-gray-100" for="uart-2">Zusammenstoß
-                    mit vorausfahrendem / wartendem Fahrzeug vorausfahrendem / wartendem Fahrzeug vorausfahrendem /
-                    wartendem Fahrzeug</label>
-            </div>
-            <div class="flex items-start">
-                <input class="w-1/12 w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
-                       id="uart-3" type="checkbox"
-                       value="">
-                <label class="w-11/12 ml-2 -mt-1 text-md font-medium text-gray-100 dark:text-gray-100" for="uart-3">Unfall
-                    anderer Art</label>
-            </div>
-        </div>
+    <div class="w-full sm:w-4/12 md:w-5/12 lg:w-3/12 sm:overflow-scroll bg-neutral-100" id="filter">
         <div>
             <div class="text-red-700 p-3">
                 <h1 class="text-2xl md:text-3xl font-bold">
-                    Local Elections Map
+                    Kommunalwahlen 23
                 </h1>
-                <h2 class="text-gray-700 text-md">
-                    Schleswig-Holstein - Version 2.1
-                </h2>
             </div>
             <div class="font-sans text-md" id="details">
             </div>
         </div>
         <div class="py-2 px-3">
             <h3 class="font-sans text-xl md:text-2xl mb-1 md:mb-3">Interaktive Karte</h3>
+            <p class="font-mono mb-2 md:mb-4">
+                Für die anstehnden Kommunalwahlen in Schleswig-Holstein haben wir uns vom OK Lab Flensburg zur Aufgabe gemacht die Polygonen der Gebietsgrenzen der Wahlkreise als auch der Wahlbezirke der jeweiligen Geminden, Kommunen und Städte auf einer interaktiven Karte mit den jeweils zugelassenen Kandidat*innen zu visualisieren.
+            </p>
+            <p class="font-mono mb-2 md:mb-4">
+Es war überaus herausfordernd Kontakt mit den jeweiligen Kommunen, Kreisen, Landräten und Gemeinderäten herzustellen um die gewünschten Informationen in einem maschinenlesbaren Format für die Weiterverarbeitung der offenen Daten über unterschiedliche informationsfreiheitsanfragen zu bekommen.
+            </p>
             <p class="font-mono mb-4 md:mb-8">
-                xxx
+Trotz jeglicher Bemühungen gibt es noch viel Potenzial bei der Digitalisierung in Schleswig-Holstein. Wir vom OK Lab Flensburg unterstützen weiterhin Kommunen, Kreise und das Land Schleswig-Holstein bei ähnlichen Vorhaben und freuen uns auf eine Hohe Wahlbeteiligung.
             </p>
             <h3 class="font-sans text-xl md:text-2xl mb-1 md:mb-3">Quellcode</h3>
-            <p class="font-mono mb-4 md:mb-8"><a class="text-blue-600 hover:text-blue-500 focus:text-blue:500"
+            <p class="font-mono"><a class="text-blue-600 hover:text-blue-500 focus:text-blue:500"
                                                  href="https://github.com/oklabflensburg/open-local-elections-map.git"
                                                  target="_blank">GitHub</a>
-            </p>
-            <h3 class="font-sans text-xl md:text-2xl mb-1 md:mb-3">
-                Datenquelle
-            </h3>
-            <p class="font-mono">
-                <a class="text-blue-600 hover:text-blue-500 focus:text-blue:500"
-                href="https://fragdenstaat.de/anfrage/geodaten-der-wahlbezirke-und-wahlkreise-der-hansestadt-luebeck/"
-                target="_blank">https://fragdenstaat.de/anfrage/geodaten-der-wahlbezirke-und-wahlkreise-der-hansestadt-luebeck</a>
             </p>
         </div>
     </div>
