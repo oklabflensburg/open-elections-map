@@ -1,6 +1,6 @@
 # Interaktive Kommunalwahl Karte
 
-![Screenshot interaktive Karte](https://github.com/oklabflensburg/open-local-elections-map/blob/ca0a19e10c07cc4dfdf909315956971d28a7c605/open-local-elections-map.png)
+![Screenshot interaktive Karte](https://github.com/oklabflensburg/open-local-elections-map/blob/dd4e91ebe5a72b3b76245b2490a6c1d514af3896/open_local_elections_map.jpg)
 
 
 ## Projekt Idee
