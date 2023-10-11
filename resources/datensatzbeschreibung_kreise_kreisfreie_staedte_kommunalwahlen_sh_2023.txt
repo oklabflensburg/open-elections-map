@@ -1,0 +1,38 @@
+Datensatzbeschreibung:
+
+Inhalt: Kreise und kreisfreie Städte zu den Kommunalwahlen am 14.05.2023 als Flächen-Datensatz (Shapefile bzw. Geojsonfile)
+
+Anzahl: 11 Kreise und 4 kreisfreie Städte
+
+Shapefile: Kreise_kreisfreie_Staedte_KMW_2023_SH_shapefile.zip
+Geojson: Kreise_kreisfreie_Staedte_KMW_2023_SH_geojson.zip
+
+Hinweise und Aktualität: Die Geodaten wurden aus den Gebietsdaten (VGEO250, Stand 01.01.2022) des Bundesamts für Kartographie und Geodäsie (BKG) abgeleitet. 
+Die abgeleiteten Geodaten enthalten generalisierte Flächen zur Ergebnisdarstellung für die Wahlen und sind damit ggf. topographisch nicht korrekt. 
+
+
+bereitgestellt von: Statistisches Amt für Hamburg und Schleswig-Holstein
+
+bearbeitet durch: Ref. 35
+
+Bearbeitungsstand: 19.04.2023
+
+-------------------------------------------
+Attributbeschreibung:
+
+
+FID (interne Nummer)
+
+Shape (Systemfeld Geometrie)
+
+LK (Zweisteller Kreis)
+
+ARS (Amtlicher Regionalschlüssel - zur Verwendung angepasst)
+
+AGS (Amtlicher Gemeindeschlüssel)
+
+GEN (Kreisname)
+
+BEZ (administrative Bezeichnung)
+
+BEZ_GEN (administrative Bezeichnung und Kreisname)
