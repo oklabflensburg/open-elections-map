@@ -1,4 +1,4 @@
-# Karte der Wahllokale für die Europawahlen 2024 in Flensburg
+# Wahllokale Europawahlen 2024 in Flensburg
 
 [![Lint css files](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-css.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-css.yml)
 [![Lint html files](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-html.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-html.yml)
