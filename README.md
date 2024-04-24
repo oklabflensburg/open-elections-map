@@ -1,6 +1,13 @@
-# Interaktive Kommunalwahl Karte
+# Karte der Wahllokale für die Europawahlen 2024 in Flensburg
 
-![Screenshot interaktive Karte](https://github.com/oklabflensburg/open-local-elections-map/blob/dd4e91ebe5a72b3b76245b2490a6c1d514af3896/open_local_elections_map.jpg)
+[![Lint css files](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-css.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-css.yml)
+[![Lint html files](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-html.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-html.yml)
+[![Lint js files](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-js.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lint-js.yml)
+[![Lighthouse CI](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/oklabflensburg/open-elections-map/actions/workflows/lighthouse.yml)
+
+![Screenshot Karte der Wahllokale für die Europawahlen 2024 in Flensburg](https://github.com/oklabflensburg/open-local-elections-map/blob/dd4e91ebe5a72b3b76245b2490a6c1d514af3896/open_local_elections_map.jpg)
+
+_Haftungsausschluss: Dieses Repository und die zugehörige Datenbank befinden sich derzeit in einer Beta-Version. Einige Aspekte des Codes und der Daten können noch Fehler enthalten. Bitte kontaktieren Sie uns per E-Mail oder erstellen Sie ein Issue auf GitHub, wenn Sie einen Fehler entdecken._
 
 
 ## Projekt Idee
